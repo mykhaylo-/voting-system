@@ -19,3 +19,4 @@ Voting:
 ```
 curl -X POST -v -u admin:pass http://localhost:8080/restaurants/3/vote
 ```
+*When user tries to vote after 11 AM we send 403 Forbidden response.
