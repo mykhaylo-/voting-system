@@ -1,6 +1,7 @@
 # voting-system
 
 Here are shown base _curl_ commands which demonstrate how to use the voting-system API.
+
 Creating new restaurant:
 ```
 curl -H "Content-Type:application/json" -d '{"lunchMenu":{"dishes":[{"name":"Beer”,”price":33.6}]},"name":"Restaurant 1"}'  -v -u admin:pass http://localhost:8080/restaurants 
