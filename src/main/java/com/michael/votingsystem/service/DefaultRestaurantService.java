@@ -5,6 +5,7 @@ import com.michael.votingsystem.model.Restaurant;
 import com.michael.votingsystem.repository.RestaurantRepository;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 
@@ -30,9 +31,10 @@ public class DefaultRestaurantService implements RestaurantService {
     }
 
     @Override
-    public Restaurant updateMenu(Long id, Menu menu) {
+    public void updateMenu(Long id, Menu menu) {
         Restaurant restaurant = restaurantRepository.findOne(id);
+        menu.setId(restaurant.getLunchMenu().getId());
         restaurant.setLunchMenu(menu);
-        return restaurantRepository.save(restaurant);
+        restaurantRepository.save(restaurant);
     }
 }

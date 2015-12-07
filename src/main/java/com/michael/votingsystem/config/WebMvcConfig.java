@@ -1,7 +1,7 @@
-package com.michael.votingsystem;
+package com.michael.votingsystem.config;
 
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.web.bind.support.AuthenticationPrincipalArgumentResolver;
+import org.springframework.security.web.method.annotation.AuthenticationPrincipalArgumentResolver;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 

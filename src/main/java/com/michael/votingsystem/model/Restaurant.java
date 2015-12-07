@@ -1,9 +1,7 @@
 package com.michael.votingsystem.model;
 
-import javax.annotation.Generated;
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.stream.Stream;
+import java.util.Objects;
 
 @Entity
 public class Restaurant {
@@ -12,7 +10,7 @@ public class Restaurant {
     @GeneratedValue(strategy = GenerationType.TABLE)
     private Long id;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Menu lunchMenu;
 
     public void setLunchMenu(Menu lunchMenu) {
@@ -25,13 +23,6 @@ public class Restaurant {
     }
 
     private String name;
-
-    public Restaurant() {
-    }
-
-    public Restaurant(String name) {
-        this.name = name;
-    }
 
     public Long getId() {
         return id;
@@ -47,5 +38,29 @@ public class Restaurant {
 
     public Menu getLunchMenu() {
         return lunchMenu;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Restaurant that = (Restaurant) o;
+        return Objects.equals(id, that.id) &&
+                Objects.equals(lunchMenu, that.lunchMenu) &&
+                Objects.equals(name, that.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, lunchMenu, name);
+    }
+
+    @Override
+    public String toString() {
+        return "Restaurant{" +
+                "id=" + id +
+                ", lunchMenu=" + lunchMenu +
+                ", name='" + name + '\'' +
+                '}';
     }
 }

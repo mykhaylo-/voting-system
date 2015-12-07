@@ -1,4 +1,4 @@
-package com.michael.votingsystem;
+package com.michael.votingsystem.config;
 
 import org.h2.server.web.WebServlet;
 import org.springframework.boot.context.embedded.ServletRegistrationBean;

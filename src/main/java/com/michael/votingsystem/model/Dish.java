@@ -3,6 +3,7 @@ package com.michael.votingsystem.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.util.Objects;
 
 @Entity
 public class Dish {
@@ -11,9 +12,16 @@ public class Dish {
     @GeneratedValue
     private Long id;
 
-    private final String name;
+    private String name;
 
-    private final double price;
+    private double price;
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Dish() {
+    }
 
     public Dish(String name, double price) {
         this.name = name;
@@ -30,5 +38,29 @@ public class Dish {
 
     public Long getId() {
         return id;
+    }
+
+    @Override
+    public String toString() {
+        return "Dish{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Dish dish = (Dish) o;
+        return Objects.equals(price, dish.price) &&
+                Objects.equals(id, dish.id) &&
+                Objects.equals(name, dish.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, price);
     }
 }

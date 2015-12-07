@@ -12,5 +12,5 @@ public interface RestaurantService {
 
     Restaurant save(Restaurant restaurant);
 
-    Restaurant updateMenu(Long id, Menu menu);
+    void updateMenu(Long id, Menu menu);
 }
