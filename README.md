@@ -1,5 +1,11 @@
 # voting-system
 
+This a Spring Boot application. To run it execute the following command in your terminal:
+```
+gradle bootRun
+```
+By default application starts on 8080 port.
+
 Here are shown base _curl_ commands which demonstrate how to use the voting-system API.
 
 Creating new restaurant:
